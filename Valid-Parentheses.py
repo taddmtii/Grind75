@@ -1,14 +1,19 @@
 1class Solution:
 2    def isValid(self, s: str) -> bool:
-3        stack = []
-4        closing_brackets = {")": "(", "]": "[", "}": "{"}
-5        
-6        for symbol in s:
-7            if symbol in closing_brackets.values():
-8                stack.append(symbol)
-9            elif symbol in closing_brackets:
-10                if stack and stack[-1] == closing_brackets[symbol]:
-11                    stack.pop()
-12                else:
-13                    return False
-14        return stack == []
+3        closing = {"}": "{", ")": "(", "]": "["}
+4        stack = []
+5        if len(s) <= 1:
+6            return False
+7
+8        for ch in s:
+9            if ch in ["(", "{", "["]:
+10                stack.append(ch)
+11            else:
+12                if stack:
+13                    elem = stack.pop()
+14                    if elem != closing[ch]:
+15                        return False
+16                else:
+17                    return False
+18    
+19        return not stack
