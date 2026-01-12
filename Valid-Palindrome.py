@@ -4,13 +4,12 @@
 4        for ch in s:
 5            if ch.isalnum():
 6                cleaned += ch.lower()
-7        l = 0
-8        r = len(cleaned) - 1
+7        
+8        l, r = 0, len(cleaned) - 1
 9
-10        for _ in range(len(cleaned) - 1):
-11            if cleaned[l] == cleaned[r]:
-12                l += 1
-13                r -= 1
-14            else:
-15                return False
-16        return True
+10        while l <= r:
+11            if cleaned[l] != cleaned[r]:
+12                return False
+13            l += 1
+14            r -= 1
+15        return True
