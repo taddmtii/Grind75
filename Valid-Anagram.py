@@ -4,8 +4,8 @@
 4            return False
 5        s_map = Counter(s)
 6        t_map = Counter(t)
-7        for key, value in s_map.items():
-8            if key not in t_map or t_map[key] != value:
-9                return False
-10
+7
+8        for s in s_map:
+9            if s not in t_map or t_map[s] != s_map[s]:
+10                return False
 11        return True
