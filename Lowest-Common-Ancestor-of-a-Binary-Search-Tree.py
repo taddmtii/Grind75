@@ -7,12 +7,13 @@
 7
 8class Solution:
 9    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-10        cur = root
+10        curr = root
 11
-12        while cur:
-13            if p.val > cur.val and q.val > cur.val:
-14                cur = cur.right
-15            elif p.val < cur.val and q.val < cur.val:
-16                cur = cur.left
+12        while curr:
+13            if p.val > curr.val and q.val > curr.val:
+14                curr = curr.right
+15            elif p.val < curr.val and q.val < curr.val:
+16                curr = curr.left
 17            else:
-18                return cur
+18                return curr
+19
