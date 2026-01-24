@@ -6,22 +6,19 @@
 6#         self.right = right
 7class Solution:
 8    def isBalanced(self, root: Optional[TreeNode]) -> bool:
-9        balanced = True
+9        balanced = [True]
 10
-11        def height(root):
-12            nonlocal balanced
-13
-14            if not root:
-15                return 0
-16            
-17            l_height = height(root.left)
-18            r_height = height(root.right)
-19
-20            if abs(l_height - r_height) > 1:
-21                balanced = False
-22                return 0
-23            
-24            return 1 + max(l_height, r_height)
-25
-26        height(root)
-27        return balanced
+11        def height(curr):
+12            if not curr:
+13                return 0
+14        
+15            left = height(curr.left)
+16            right = height(curr.right)
+17            if abs(left - right) > 1:
+18                balanced[0] = False
+19                return 0
+20
+21            return 1 + max(left, right) 
+22
+23        height(root)
+24        return balanced[0]
