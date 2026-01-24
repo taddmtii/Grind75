@@ -1,10 +1,9 @@
 1class Solution:
 2    def canConstruct(self, ransomNote: str, magazine: str) -> bool:
-3        magazine_dict = Counter(magazine)
-4
-5        for ch in ransomNote:
-6            if ch in magazine_dict and magazine_dict[ch] != 0:
-7                magazine_dict[ch] -= 1
-8            else:
-9                return False
-10        return True
+3        mag_dict = Counter(magazine)
+4        for ch in ransomNote:
+5            if mag_dict[ch]:
+6                mag_dict[ch] -= 1
+7            else:
+8                return False
+9        return True
