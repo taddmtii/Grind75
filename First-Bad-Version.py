@@ -5,10 +5,10 @@
 5    def firstBadVersion(self, n: int) -> int:
 6        L, R = 0, n
 7        while L <= R:
-8            mid = L + (R - L) // 2
-9            if isBadVersion(mid):
-10                R = mid - 1
+8            M = (L + R) // 2
+9            if (isBadVersion(M)):
+10                R = M - 1
 11            else:
-12                L = mid + 1
+12                L = M + 1
 13        return L
 14
