@@ -8,14 +8,13 @@
 8    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
 9        self.result = 0
 10
-11        def dfs(curr):
-12            if not curr:
+11        def dfs(root):
+12            if not root:
 13                return 0
-14            left = dfs(curr.left)
-15            right = dfs(curr.right)
+14            left = dfs(root.left)
+15            right = dfs(root.right)
 16            self.result = max(self.result, left + right)
 17            return 1 + max(left, right)
 18
-19
-20        dfs(root)
-21        return self.result
+19        dfs(root)
+20        return self.result
